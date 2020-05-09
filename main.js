@@ -6,7 +6,7 @@ import data from './data/pokemon/pokemon.js';
 const pokeData = data.pokemon;
 const rootElement = document.getElementById("root"); //importanto div do html
 
-//estruturando o card
+//estrutura do card
 const pokeCard = function (num, img, name, type, weaknesses) {
  return `<div class="pokecard">
             ${num}
@@ -17,7 +17,7 @@ const pokeCard = function (num, img, name, type, weaknesses) {
          </div>`
 }
 
-//função que gera o card
+//função que gera e coloca o conteúdo na div. Os parametros dentro de pokeCard estão assim um embaixo do outro para melhor leitura. 
 const drawCard = function (pokemon) {
   rootElement.innerHTML += pokeCard(pokemon.num,
                                     pokemon.img, 
@@ -26,10 +26,10 @@ const drawCard = function (pokemon) {
                                     pokemon.weaknesses)
 }
 
-pokeData.map(drawCard) //mapeando e gerando a função que faz o card.
+//mapeando todos os 151 pokemons e chamando a função que gera o card. Todos os pokemons de pokeData aparecem. 
+pokeData.map(drawCard) 
 
-
-//função filtrar por tipo
+//-----função filtrar por tipo------
 function filterType() {
   const tipoEscolhido = document.getElementById("select-type").value //pegando o tipo escolhido pelo usuário. const tipoEscolhido recebe.
 
@@ -37,28 +37,25 @@ function filterType() {
     return pokemon.type.includes(tipoEscolhido) //includes compara elementos de outra array, pois type é uma array dentro da array pokeData. 
   })
  
-  rootElement.innerHTML = ''
-  filteredData.map(drawCard)
- 
+  rootElement.innerHTML = '' //apaga todos os 151 cards que estavam aparecendo.
+  filteredData.map(drawCard) //mapea os pokemons filtrados e chama a função drawCard, que gera o card.
 }
 
-
-/*function OrderByAlphabet () {
-  const ordemEscolhida = document.getElementById("order-by-alphabet").value
-  const ordemAscendente = pokeData.sort (function (a,b) {
-    if (a.name > b.name) {
-      return 1;
-    }
-    if (a.name < b.name) {
-      return -1;
-    }
+//-------função filtra pelo nome buscado na caixa------
+function filterSearchBox () {
+  let nameSearched = document.getElementById("search-box").value
+  nameSearched = nameSearched.charAt(0).toUpperCase() + nameSearched.slice(1); //deixando a inicial maiúscula
+  const filteredName = pokeData.filter(function (pokemon) {
+    return pokemon.name.includes(nameSearched)
   })
-} */
+  rootElement.innerHTML = ''
+  filteredName.map(drawCard)
+}
 
 
 
 
 //verificando eventos
-document.getElementById("select-type").addEventListener("change", filterType); //verificando evento.
+document.getElementById("select-type").addEventListener("change", filterType);
 //document.getElementById("order-by-alphabet").addEventListener("change", OrderByAlphabet);
-//document.getElementById("search-box").addEventListener("search", filterSearchBox)
+document.getElementById("search-box").addEventListener("input", filterSearchBox)
