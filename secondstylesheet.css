@@ -226,7 +226,7 @@ body {
   color: whitesmoke;
   position: absolute;
   left: 31%;
-  padding-right: 60px; /* jessica: tentativa de encaixar a imagem fora do texto*/
+  padding-right: 20px; /* jessica: tentando encaixar a imagem pra fora do texto*/
 }
 
 .miniaturaPokemon-modal {
