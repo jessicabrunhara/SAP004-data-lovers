@@ -4,8 +4,7 @@
 }
 
 .logo img {
-  width: 450px;
-  height: 180px;
+  max-width: 450px;
 }
 
 body {
@@ -17,7 +16,7 @@ body {
   background-color: rgba(62, 108, 188);
 }
 
-.botoes-todos{
+.buttons-container{
   display: flex;
   justify-content: space-evenly;
   margin: 30px 0px 40px 0;
@@ -45,7 +44,7 @@ body {
   background-color:  #2a5293;
 }
 
-.texto{
+.text{
   display: flex;
   justify-content: center;
   text-align: center;
@@ -63,9 +62,9 @@ p{
   background-color: rgb(243, 243, 243, 60%);
 }
 
-@media (max-width: 850px)
+ @media (max-width: 850px)
 {
-  .botoes-todos{
+  .buttons-container{
     display: grid;
   }
 
@@ -73,11 +72,36 @@ p{
     margin: 0.4em;
   }
 
+  .logo img {
+  max-width: 80%;
+  height: auto;
+  }
+
+  .text{
+    font-size: 1em;
+    font-weight: 400;
+  }
+} 
+
+/* home tablet deitado */
+@media (max-width: 376px)
+{
+  .botoes-todos{
+    display: flex;
+  }
+
+  .buttons{
+    margin: 0.4em;
+    width: 100px;
+  }
+
 .logo img {
-  width: 80%;
+  width: 82%;
+  height: 110px;
   }
 
   .texto{
     font-size: 1.6em;
   }
+
 }
