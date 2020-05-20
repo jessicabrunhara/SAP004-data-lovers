@@ -1,3 +1,7 @@
+header {
+  display: flex;
+}
+
 #top-menu-wrapper {
   display: flex;
   padding: 20px;
@@ -5,22 +9,27 @@
 
 .icon {
   color: #ef4036;
-  font-size: 40px;
+  font-size: 50px;
   flex: 0;
-  ;
 }
 
 #top-menu {
-  background-color: white;
+  background-color: whitesmoke;
   padding: 20px;
+}
+
+#top-menu-icon {
+  padding: 0px 0px 0px 0px;
 }
 
 #top-menu a {
   text-decoration: none;
   color: black;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #navigation-wrapper {
+  z-index: 1000;
   position: absolute;
   top: 20px;
   left: 20px;
@@ -45,7 +54,7 @@
   font-size: 25px;
   list-style: none;
   border-bottom: 1px solid black;
-  margin: 50px 0px 20px 0px;
+  margin: 20px 0px 20px 0px;
   padding: 0px 10px 0px 10px;
 }
 
@@ -111,21 +120,6 @@ body {
   background-color: rgba(62, 108, 188);
 }
 
-/* texto-em-construcao esta em uso nas paginas comunidades e eventos */
-
-.texto-em-construcao {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  font-size: 25px;
-  font-weight: 400;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #606163;
-  padding: 10px;
-  margin: 0;
-  background-color: rgb(243, 243, 243, 35%);
-}
-
 .pokeimg {
   width: 60%;
 }
@@ -149,13 +143,12 @@ body {
   width: 80%;
   float: left;
   padding: 1em;
-  background:  rgba(42, 82, 147, 80%); /* mudei essa cor pra conversar melhor com a nossa cartela*/
+  background:  rgba(42, 82, 147, 80%);
 }
 
 .pokecard:hover {
   background: url('imagens/pokebola.png');
   background-size: 150%;
-  /* color: #FFD700; */
 }
 
 .miniaturaPokemon:hover {
@@ -175,7 +168,6 @@ body {
 }
 
 .modal_background {
-  /* background: url('imagens/pokebola-aberta.png'); */
   display: none;
   flex-direction: row;
   justify-content: center;
@@ -187,8 +179,7 @@ body {
   width: 100%;
   height: 100%;
   background: rgba(99, 99, 99, 0.5);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /*jessica: mudei a fonte */
-  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .modal_background .modal_pokemon {
@@ -213,7 +204,7 @@ body {
   top: -44px;
   display: block;
   position: relative;
-  padding-left: 20px; /*jessica: coloquei padding pois a imagem do pokemon cobre o texto */
+  padding-left: 20px;
 }
 
 .pokelist-modal {
@@ -226,11 +217,11 @@ body {
   color: whitesmoke;
   position: absolute;
   left: 31%;
-  padding-right: 20px; /* jessica: tentando encaixar a imagem pra fora do texto*/
+  padding-right: 20px;
 }
 
 .miniaturaPokemon-modal {
-  width: 242px; /*diminui 20px da imagem, pois alguns pokemons estavam saindo da bola aberta*/
+  width: 242px;
 }
 
 #root{
@@ -241,12 +232,56 @@ body {
   flex-direction: row;
 }
 
-@media (max-width: 376px)
-{
+@media (min-width: 601px) and (max-width: 900px){
+  .barra-navegacao {
+    flex-wrap: wrap;
+    /*margin-top: -55px;*/
+  }
+
+  .header{
+    position: fixed;
+    margin-top: -100px;
+  }
+
+  .imagem-logo img{
+    width: 350px;
+    height: 130px;
+    position: relative;
+    /*top: -81px; */
+    left: 40px;
+  }
+
+  .pokecard{
+    align-items: center;
+    font-size: 19px;
+    width: 23%;
+  }
+
+  .pokelist-modal {
+    width: 56%;
+    left: 56px;
+    top: 337px;
+  }
+
+  .button-style{
+    display: flex;
+    width: 100px;
+    height: 30px;
+    font-size: 16px;
+  }
+
+  .modal_background .modal_pokemon {
+    top: -74px;
+    position: relative;
+  }
+}
+
+@media (max-width: 600px){
   .barra-navegacao {
     flex-wrap: wrap;
     margin-top: 110px;
   }
+
   .btn-space {
     margin: 0.4em;
   }
@@ -259,8 +294,8 @@ body {
   .imagem-logo img{
     width: 245px;
     height: 89px;
-    position: relative;
-    top: -90px;
+    /*position: relative;*/
+    /*top: -90px;*/
     left: 40px;
   }
 
@@ -274,16 +309,17 @@ body {
     top: 337px;
   }
 
+  .button-style{
+    display: flex;
+    width: 100px;
+    height: 30px;
+    font-size: 16px;
+  }
 
   .modal_background .modal_pokemon {
     top: -74px;
     position: relative;
   }
 }
-/* 
-@media (max-width: 850px) {
-  .imagem-logo img {
-    max-width: 100%;
-    height: auto;
-  }
-} */
+
+
