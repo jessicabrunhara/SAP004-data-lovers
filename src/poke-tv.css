@@ -71,9 +71,9 @@
 }
 
 .imagem-logo img {
-  width: 350px;
-  height: 130px;
+  max-width: 350px;
 }
+
 
 body {
   background-image: url(imagens/background.png);

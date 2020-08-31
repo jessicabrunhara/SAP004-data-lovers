@@ -1,5 +1,4 @@
 import search from './data.js';
-
 import data from './data/pokemon/pokemon.js';
 
 const pokeData = data.pokemon;
@@ -9,14 +8,13 @@ const percentElement = document.getElementById("percent")
 const pokeCard = function (pokemon) {
   let pokemonStringFy = JSON.stringify(pokemon);
   return `<div class="pokecard" data-pokemon='${pokemonStringFy}'>
-            <div class="pokeimg">
-              ${pokemon.num} <br>
+            ${pokemon.num}
+            <figure class="pokeimg">
               <img class='miniaturaPokemon' src="${pokemon.img}" alt ='miniatura pokemon'>
-            </div>
-            <div class='pokelist'>
-              <b>Nome</b>: ${pokemon.name} <br>
-              <b>Tipo</b>: ${pokemon.type} <br>
-              
+            </figure>
+            <div class='pokecard-information-wrapper'>
+              Nome: ${pokemon.name}
+              Tipo: ${pokemon.type}
             </div>
           </div>`
 };
@@ -87,9 +85,7 @@ let closeModal = (event) => {
   }
 }
 document.querySelector(".modal_background").addEventListener("click", closeModal);
-
 document.querySelector(".buttonCloseModal").addEventListener("click", closeModal);
-
 document.getElementById("root").addEventListener("click", (event) => {
 
   if (event.target) {
@@ -164,7 +160,7 @@ const listTypes = (pokeList) => {
   for (let i = 0; i < pokeList.length; i++) {
     for (let j = 0; j < pokeList[i].type.length; j++) {
       let type = pokeList[i].type[j];
-        pokeAllTypes[type] = type;
+      pokeAllTypes[type] = type;
     }
   }
   return pokeAllTypes;
@@ -172,7 +168,7 @@ const listTypes = (pokeList) => {
 
 let selectType = document.querySelector("#select-type")
 let listType = Object.keys(listTypes(pokeData));
-  for (let k = 0; k < listType.length; k++) {
-    let opcao = new Option(listType[k].toUpperCase(), listType[k])
-      selectType.add(opcao)
+for (let k = 0; k < listType.length; k++) {
+  let opcao = new Option(listType[k].toUpperCase(), listType[k])
+  selectType.add(opcao)
 }
