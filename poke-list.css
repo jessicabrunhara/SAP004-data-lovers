@@ -75,8 +75,7 @@ header {
 }
 
 .imagem-logo img {
-  width: 350px;
-  height: 130px;
+  max-width: 350px;
 }
 
 .barra-navegacao {
@@ -137,7 +136,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.pokelist {
+.pokecard-information-wrapper {
   border-radius: 5%;
   font-size: 80%;
   width: 80%;
